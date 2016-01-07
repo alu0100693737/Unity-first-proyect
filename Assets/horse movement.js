@@ -1,20 +1,22 @@
-﻿/*#pragma strict
-using UnityEngine;
-using System.Collections;
+﻿var contador : float = 0;
+var playerPos: Transform;
+var x: float =0;
+var y: float = 0;
+var z: float = 0;
 
-[RequireComponent(typeof(Animator))]
-    
-public class RootMotionScript : MonoBehaviour {
-            
-    void OnAnimatorMove()
-    {
-            Animator animator = GetComponent<Animator>();
-                              
-            if (animator)
-            {
-     Vector3 newPosition = transform.position;
-               newPosition.z += animator.GetFloat("Runspeed") * Time.deltaTime; 
-     transform.position = newPosition;
-            }
-    }
-}*/
+var correr: float =1.2;
+var rotate: float = 3;
+var turnSpeed: int= 360;
+
+function Update(){
+	if((contador> 3.5) && (contador< 6.5)) 
+		transform.Translate(Vector3.forward * Time.deltaTime);
+	if((contador> 11) && (contador< 13))
+		transform.Translate(Vector3.forward * Time.deltaTime);
+	if (contador>14){
+			contador=0;
+			transform.Rotate(Vector3(0, 90, 0));
+			}
+	contador+= Time.deltaTime;
+	}
+	
